@@ -1,0 +1,19 @@
+<html>
+    <header th:fragment="adminheader" class="p-3 bg-dark text-white">
+        <div style="padding-right: 1rem; padding-left: 1rem;">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                </ul>
+
+                <div class="text-end">
+                    <a type="button" href="/travel/admin/login" class="btn btn-warning">Войти</a>
+                </div>
+                <div class="text-end" style="margin-left: 1rem;">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="btn btn-outline-warning" value="Выйти"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+</html>

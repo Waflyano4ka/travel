@@ -1,0 +1,69 @@
+<html th:fragment="sidebar">
+    <a href="/travel/admin/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <i class="bi bi-compass text-warning" style="font-size: 24px; margin-right: 8px; margin-left: 12px;"><use xlink:href="#home"></use></i>
+        <span class="fs-4">Travel</span>
+    </a>
+    <br>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="/travel/admin/country" class="nav-link text-white" aria-current="page">
+                <i class="bi bi-image-alt" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Страны
+            </a>
+        </li>
+        <li>
+            <a href="/travel/admin/city" class="nav-link text-white">
+                <i class="bi bi-building" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Города
+            </a>
+        </li>
+        <li>
+            <a href="/travel/admin/restaurant" class="nav-link text-white">
+                <i class="bi bi-shop" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Рестораны
+            </a>
+        </li>
+        <li>
+            <a href="/travel/admin/excursion" class="nav-link text-white">
+                <i class="bi bi-geo-alt" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Отдых
+            </a>
+        </li>
+        <li>
+            <a href="/travel/admin/hotel" class="nav-link text-white">
+                <i class="bi bi-house" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Отели
+            </a>
+        </li>
+        <li>
+            <a href="/travel/admin/booking" class="nav-link text-white">
+                <i class="bi bi-shield-lock" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Бронирование
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/travel/admin/user" class="nav-link text-white" aria-current="page">
+                <i class="bi bi-person-fill" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                Пользователи
+            </a>
+        </li>
+<!--        <li>-->
+<!--            <a href="/travel/admin/passport" class="nav-link text-white" aria-current="page">-->
+<!--                <i class="bi bi-file-earmark-person-fill" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>-->
+<!--                Пасспорт-->
+<!--            </a>-->
+<!--        </li>-->
+    </ul>
+    <hr>
+    <div class="dropdown">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/travel/admin/account" class="nav-link text-white" aria-current="page">
+                    <i class="bi bi-person-circle" style="font-size: 16px; margin-right: 8px;"><use xlink:href="#home"></use></i>
+                    Аккаунт
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" th:src="@{/js/nav.js}" src="../static/js/nav.js"></script>
+</html>

@@ -1,0 +1,8 @@
+main {
+    display: flex;
+    height: 100vh;
+}
+
+.without_border{
+    border-width: 0px;
+}
