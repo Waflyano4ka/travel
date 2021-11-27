@@ -155,4 +155,20 @@ public class AccountController {
         accountRepository.save(user);
         return "redirect:/travel/admin/user";
     }
+
+    @GetMapping("/account/{id}")
+    public String detailsData(Account account, @PathVariable(value = "id") long id, Model model){
+        account = accountRepository.findById(id).orElseThrow();
+        model.addAttribute("account", account);
+
+        return "admin/detail/account";
+    }
+
+    @GetMapping("/account/{id}/delete")
+    public String deleteData(Account account, @PathVariable(value = "id") long id, Model model){
+        account = accountRepository.findById(id).orElseThrow();
+        accountRepository.delete(account);
+
+        return "redirect:/travel/admin/account";
+    }
 }

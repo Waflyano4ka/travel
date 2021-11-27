@@ -120,4 +120,25 @@ public class ExcursionController {
         excursionRepository.save(excursion);
         return "redirect:/travel/admin/excursion";
     }
+
+    @GetMapping("/excursion/{id}")
+    public String detailsData(Excursion excursion, @PathVariable(value = "id") long id, Model model){
+        Iterable<City> cities = cityRepository.findAll();
+        model.addAttribute("elements", cities);
+        Iterable<TypeExcursion> typeExcursions = typeExcursionRepository.findAll();
+        model.addAttribute("elements2", typeExcursions);
+
+        excursion = excursionRepository.findById(id).orElseThrow();
+        model.addAttribute("excursion", excursion);
+
+        return "admin/detail/excursion";
+    }
+
+    @GetMapping("/excursion/{id}/delete")
+    public String deleteData(Excursion excursion, @PathVariable(value = "id") long id, Model model){
+        excursion = excursionRepository.findById(id).orElseThrow();
+        excursionRepository.delete(excursion);
+
+        return "redirect:/travel/admin/excursion";
+    }
 }

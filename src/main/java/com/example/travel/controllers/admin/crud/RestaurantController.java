@@ -92,4 +92,23 @@ public class RestaurantController {
         restaurantRepository.save(restaurant);
         return "redirect:/travel/admin/restaurant";
     }
+
+    @GetMapping("/restaurant/{id}")
+    public String detailsData(Restaurant restaurant, @PathVariable(value = "id") long id, Model model){
+        Iterable<City> cities = cityRepository.findAll();
+        model.addAttribute("elements", cities);
+
+        restaurant = restaurantRepository.findById(id).orElseThrow();
+        model.addAttribute("restaurant", restaurant);
+
+        return "admin/detail/restaurant";
+    }
+
+    @GetMapping("/restaurant/{id}/delete")
+    public String deleteData(Restaurant restaurant, @PathVariable(value = "id") long id, Model model){
+        restaurant = restaurantRepository.findById(id).orElseThrow();
+        restaurantRepository.delete(restaurant);
+
+        return "redirect:/travel/admin/restaurant";
+    }
 }

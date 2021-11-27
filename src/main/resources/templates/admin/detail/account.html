@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+    <meta charset="UTF-8">
+    <title>Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+</head>
+<body>
+<main class="text-white bg-dark">
+    <div th:insert="admin/sidebar.html :: sidebar" class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;"></div>
+    <div class="d-flex flex-column flex-shrink-0" style="width: calc(100vw - 280px);">
+        <header th:insert="admin/header.html :: adminheader"></header>
+        <div class="bg-white text-dark p-3" style="width: 100%; height: 100%;">
+            <form style="padding: 10px;" th:object="${account}" method="POST" >
+                <div class="row g-3 align-items-center">
+                    <h4 class="fw-bold container-fluid col-md text-warning">Бронирование</h4>
+                </div>
+                <div>
+                    <br/>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label style="float: left; margin-left: 5px; width: 200px;" class="form-label fw-bold">Почта:</label>
+                        </div>
+                        <div class="col-auto container-fluid col-md">
+                            <input type="text" name="name" class="form-control" th:field="*{username}" placeholder="..." readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="margin-left: 220px;" class="fw-bold text-danger"></div>
+                    </div>
+                    <div th:if="${#fields.hasErrors('global')}" class="mb-3 row g-3 align-items-center">
+                        <div th:each="err : ${#fields.errors('global')}" th:text="${err}" style="color: red; margin-left: 220px;" class="fw-bold text-danger"></div>
+                    </div>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label style="float: left; margin-left: 5px; width: 200px;" class="form-label fw-bold">Пароль:</label>
+                        </div>
+                        <div class="col-auto container-fluid col-md">
+                            <input type="text" name="name" class="form-control" th:field="*{password}" placeholder="..." readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="margin-left: 220px;" class="fw-bold text-danger"></div>
+                    </div>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label style="float: left; margin-left: 5px; width: 200px;" class="form-label fw-bold">Ативный:</label>
+                        </div>
+                        <div class="col-auto container-fluid col-md">
+                            <input type="checkbox" name="name" class="form-check-input" th:field="*{active}" placeholder="..." disabled readonly>
+                        </div>
+                    </div>
+                    <a th:href="'/travel/admin/account/' + ${account.getId()} + '/delete'" style="float: right" class="btn btn-danger">Удалить</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

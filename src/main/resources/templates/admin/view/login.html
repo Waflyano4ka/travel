@@ -13,7 +13,22 @@
 <body>
 <main class="text-white bg-dark">
     <div class="d-flex flex-column flex-shrink-0" style="width: calc(100vw);">
-        <header th:insert="admin/header.html :: adminheader" ></header>
+        <header th:fragment="adminheader" class="p-3 bg-dark text-white">
+            <div style="padding-right: 1rem; padding-left: 1rem;">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/travel/admin/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <i class="bi bi-compass text-warning" style="font-size: 24px; margin-right: 8px; margin-left: 12px;"><use xlink:href="#home"></use></i>
+                        <span class="fs-4">Travel</span>
+                    </a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    </ul>
+
+                    <div class="text-end">
+                        <a type="button" href="/travel/admin/login" class="btn btn-warning">Войти</a>
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="bg-white" style="width: 100%; height: 100%;">
             <div align="center" style="margin-top: 240px;">
                 <form class="fw-bold card text-dark" style="width: 480px; padding: 10px;" th:action="@{/travel/admin/login}" method="POST" >

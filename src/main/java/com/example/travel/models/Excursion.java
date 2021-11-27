@@ -16,10 +16,10 @@ public class Excursion {
     @NotNull(message = "Поле обязательно для заполнения")
     private Double cost;
     @NotNull(message = "Поле обязательно для заполнения")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private City city;
     @NotNull(message = "Поле обязательно для заполнения")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private TypeExcursion typeExcursion;
 
     public Excursion(String name, String description, Double cost, City city, TypeExcursion typeExcursion) {

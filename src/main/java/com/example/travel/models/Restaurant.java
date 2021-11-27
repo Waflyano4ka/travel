@@ -18,7 +18,7 @@ public class Restaurant {
     @NotNull(message = "Поле обязательно для заполнения")
     private Integer rating;
     @NotNull(message = "Поле обязательно для заполнения")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private City city;
 
     public Restaurant(String name, String menu, Integer rating, City city) {

@@ -90,4 +90,23 @@ public class HotelController {
         hotelRepository.save(hotel);
         return "redirect:/travel/admin/hotel";
     }
+
+    @GetMapping("/hotel/{id}")
+    public String detailsData(Hotel hotel, @PathVariable(value = "id") long id, Model model){
+        Iterable<City> cities = cityRepository.findAll();
+        model.addAttribute("elements", cities);
+
+        hotel = hotelRepository.findById(id).orElseThrow();
+        model.addAttribute("hotel", hotel);
+
+        return "admin/detail/hotel";
+    }
+
+    @GetMapping("/hotel/{id}/delete")
+    public String deleteData(Hotel hotel, @PathVariable(value = "id") long id, Model model){
+        hotel = hotelRepository.findById(id).orElseThrow();
+        hotelRepository.delete(hotel);
+
+        return "redirect:/travel/admin/hotel";
+    }
 }

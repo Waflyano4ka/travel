@@ -22,7 +22,7 @@ public class Hotel {
     @NotNull(message = "Поле обязательно для заполнения")
     private Double cost;
     @NotNull(message = "Поле обязательно для заполнения")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private City city;
 
     @ManyToMany
