@@ -31,31 +31,36 @@
         </header>
         <div style="width: 100%; height: 100%;">
             <div align="center" style="margin-top: 240px;">
-                <form class="fw-bold card text-dark" style="width: 480px; padding: 10px;" th:action="@{/travel/admin/login}" method="POST" >
-                    <h3 class="text-warning">Авторизация</h3>
+                <form class="fw-bold card text-dark" th:object="${account}" style="width: 480px; padding: 10px;" th:action="@{/travel/admin/registration}" method="POST" >
+                    <h3 class="text-warning">Регистрация</h3>
                     <br/>
                     <div class="mb-3 row g-3 align-items-center">
                         <div class="col-auto" style="width: 100px;">
                             <label style="float: left; margin-left: 5px;" class="form-label">Почта:</label>
                         </div>
                         <div class="col-auto container-fluid col-md">
-                            <input type="text" name="username" class="form-control" placeholder="example@email.com">
+                            <input type="text" th:field="*{username}" class="form-control" placeholder="example@email.com">
                         </div>
+                    </div>
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="margin-left: 10px;" class="fw-bold text-danger"></div>
+                    </div>
+                    <div th:if="${#fields.hasErrors('global')}" class="mb-3 row g-3 align-items-center">
+                        <div th:each="err : ${#fields.errors('global')}" th:text="${err}" style="color: red; margin-left: 10px;" class="fw-bold text-danger"></div>
                     </div>
                     <div class="mb-3 row g-3 align-items-center">
                         <div class="col-auto" style="width: 100px;">
                             <label style="float: left; margin-left: 5px;" class="form-label">Пароль:</label>
                         </div>
                         <div class="col-auto container-fluid col-md">
-                            <input type="text" name="password" class="form-control" placeholder="********">
+                            <input type="text" th:field="*{password}" class="form-control" placeholder="********">
                         </div>
                     </div>
-                    <div th:if="${param.error}" class="text-danger">
-                        Неверный логин или пароль
+                    <div class="mb-3 row g-3 align-items-center">
+                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="margin-left: 10px;" class="fw-bold text-danger"></div>
                     </div>
                     <br/>
-                    <button type="submit" class="btn btn-warning">Войти</button>
-                    <a style="font-weight: lighter; padding-top: 10px;" class="text-dark" href="/travel/admin/registration">Зарегистироваться</a>
+                    <button type="submit" class="btn btn-warning">Зарегистрироваться</button>
                 </form>
             </div>
         </div>

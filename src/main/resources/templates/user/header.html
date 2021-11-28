@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html>
+    <header th:fragment="userheader" class="p-3 bg-dark text-white">
+        <div style="padding-right: 1rem; padding-left: 1rem;">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/travel/user/select" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <i class="bi bi-compass text-warning" style="font-size: 24px; margin-right: 8px; margin-left: 12px;"><use xlink:href="#home"></use></i>
+                    <span class="fs-4">Travel</span>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/travel/user/hotel" class="nav-link px-2 text-white">Отели</a></li>
+                    <li><a href="/travel/user/restaurant" class="nav-link px-2 text-white">Рестораны</a></li>
+                    <li><a href="/travel/user/excursion" class="nav-link px-2 text-white">Экскурсии</a></li>
+                </ul>
+                <a href="/travel/user/profile"><i class="bi bi-person-circle text-warning" style="font-size: 24px; margin-right: 8px; margin-left: 12px;"><use xlink:href="travel/user/profile"></use></i></a>
+            </div>
+        </div>
+    </header>
 </html>

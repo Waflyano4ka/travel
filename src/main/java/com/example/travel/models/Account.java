@@ -20,6 +20,7 @@ public class Account {
     private Role role;
     @OneToOne(optional = true, mappedBy = "account")
     private Passport passport;
+    private Long city_id;
 
     @ManyToMany
     @JoinTable(name = "booking",
@@ -92,5 +93,13 @@ public class Account {
 
     public void setHotels(List<Hotel> hotels) {
         this.hotels = hotels;
+    }
+
+    public Long getCity_id() {
+        return city_id;
+    }
+
+    public void setCity_id(Long city_id) {
+        this.city_id = city_id;
     }
 }

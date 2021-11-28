@@ -23,15 +23,16 @@ public class MainController {
 
         switch (currentPrincipalName){
             case "anonymousUser" -> {
-                return "redirect:travel/admin/login";
+                return "redirect:travel/user/home";
             }
             default -> {
-
-                System.out.println(currentPrincipalName);
                 List<Account> account = accountRepository.findByUsername(currentPrincipalName);
-
-                System.out.println(account.get(0).getRole().getName());
-                return "redirect:travel/admin/home";
+                if (account.get(0).getRole().getId() == 1) {
+                    return "redirect:travel/admin/home";
+                }
+                else {
+                    return "redirect:travel/user/select";
+                }
             }
         }
     }
